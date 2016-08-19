@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MusicStore.Models.OrderDetails>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Albums.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Orders.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Albums.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Orders.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitPrice)
+        </td>
+       
+    </tr>
+}
+
+</table>
+@section Scripts{
+    <link rel="stylesheet" herf="~/Content/jquery.spinner.css" />
+    <script type="text/javascript" src="~/Script/jquery.spinner.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".item-count").spinner();
+        });
+    </script>
